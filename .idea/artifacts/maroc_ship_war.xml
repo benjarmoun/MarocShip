@@ -1,14 +1,14 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="MarocShip:war">
+  <artifact type="war" name="maroc_ship:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <properties id="maven-jee-properties">
       <options>
-        <module>MarocShip</module>
+        <module>maroc_ship</module>
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="MarocShip-1.0-SNAPSHOT.war">
-      <element id="artifact" artifact-name="MarocShip:war exploded" />
+    <root id="archive" name="maroc_ship-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="maroc_ship:war exploded" />
     </root>
   </artifact>
 </component>

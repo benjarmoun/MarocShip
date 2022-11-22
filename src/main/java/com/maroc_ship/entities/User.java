@@ -1,30 +1,26 @@
-package entity;
+package com.maroc_ship.entities;
 
 import jakarta.persistence.*;
 
 @MappedSuperclass
-public class UserEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class User {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
-    @Column(name = "id")
     private int id;
 
-    @Basic
-    @Column(name = "userName")
+    @Column(name = "username")
     private Integer userName;
 
-    @Basic
     @Column(name = "email")
     private String email;
 
-    @Basic
     @Column(name = "password")
     private String password;
 
-    public UserEntity() {
+    public User() {
     }
 
-    public UserEntity(int id, Integer userName, String email, String password) {
+    public User(int id, Integer userName, String email, String password) {
         this.id = id;
         this.userName = userName;
         this.email = email;

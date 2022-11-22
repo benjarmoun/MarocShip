@@ -1,26 +1,24 @@
-package entity;
+package com.maroc_ship.entities;
 
 import jakarta.persistence.*;
 
-public class TrajetEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Entity
+public class Trajet {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "id")
     private int id;
 
-    @Basic
     @Column(name = "depart")
     private Integer depart;
 
-    @Basic
     @Column(name = "arrive")
     private String arrive;
 
-    @Basic
     @Column(name = "distance")
     private int distance;
 
-    @Basic
     @Column(name = "zone")
     private String zone;
 

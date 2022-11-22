@@ -1,18 +1,18 @@
-package entity;
+package com.maroc_ship.entities;
 
 import jakarta.persistence.*;
 
-public class AdminEntity {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+@Entity
+public class Admin {
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "id")
     private int id;
 
-    @Basic
     @Column(name = "email")
     private String email;
 
-    @Basic
     @Column(name = "password")
     private String password;
 

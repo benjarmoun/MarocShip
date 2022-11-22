@@ -1,4 +1,4 @@
-package com.example.marocship;
+package com.maroc_ship;
 
 import java.io.*;
 
