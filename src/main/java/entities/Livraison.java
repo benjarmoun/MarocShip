@@ -1,4 +1,4 @@
-package com.maroc_ship.entities;
+package entities;
 
 import jakarta.persistence.*;
 

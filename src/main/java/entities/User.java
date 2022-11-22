@@ -1,4 +1,4 @@
-package com.maroc_ship.entities;
+package entities;
 
 import jakarta.persistence.*;
 
@@ -9,7 +9,7 @@ public class User {
     private int id;
 
     @Column(name = "username")
-    private Integer userName;
+    private String userName;
 
     @Column(name = "email")
     private String email;
@@ -20,7 +20,14 @@ public class User {
     public User() {
     }
 
-    public User(int id, Integer userName, String email, String password) {
+    public User(String userName, String email, String password) {
+//        this.id = id;
+        this.userName = userName;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(int id, String userName, String email, String password) {
         this.id = id;
         this.userName = userName;
         this.email = email;
@@ -35,11 +42,11 @@ public class User {
         this.id = id;
     }
 
-    public Integer getUserName() {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUserName(Integer userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 
@@ -57,5 +64,15 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }
