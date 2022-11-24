@@ -1,5 +1,6 @@
 package com.maroc_ship;
 
+import Controllers.StaffController;
 import DAO.ChauffeurDAO;
 import DAO.StaffDAO;
 import entities.Chauffeur;
@@ -7,7 +8,7 @@ import entities.Staff;
 import jakarta.persistence.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 //        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
 //        EntityManager entityManager = entityManagerFactory.createEntityManager();
 //        EntityTransaction entityTransaction = entityManager.getTransaction();
@@ -19,6 +20,10 @@ public class Main {
 //
 //        ChauffeurDAO ch = new ChauffeurDAO();
 //        ch.save(chauffeur);
+        StaffController.login("hamid@staff.com","pw","staff");
+
+
+
     }
 
 }
