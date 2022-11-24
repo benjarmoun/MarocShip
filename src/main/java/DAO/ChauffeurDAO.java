@@ -2,6 +2,7 @@ package DAO;
 
 import Services.JPA;
 import entities.Chauffeur;
+import entities.Staff;
 import jakarta.persistence.Query;
 
 import java.sql.SQLException;
@@ -12,7 +13,8 @@ public class ChauffeurDAO implements DAO <Chauffeur>{
 
     @Override
     public Chauffeur get(long id) {
-        return null;
+        Chauffeur chauffeur = JPA.entityManager().find(Chauffeur.class, id);
+        return chauffeur;
     }
 
     @Override
@@ -33,6 +35,7 @@ public class ChauffeurDAO implements DAO <Chauffeur>{
 
     @Override
     public void delete(long id) throws SQLException {
-
+        Chauffeur chauffeur = JPA.entityManager().find(Chauffeur.class, id);
+        JPA.serv(em -> em.remove(chauffeur));
     }
 }

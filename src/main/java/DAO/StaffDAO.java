@@ -11,7 +11,6 @@ public class StaffDAO implements DAO<Staff>{
 
     @Override
     public Staff get(long id) {
-
         Staff staff = JPA.entityManager().find(Staff.class, id);
         return staff;
     }
@@ -43,6 +42,7 @@ public class StaffDAO implements DAO<Staff>{
 
     @Override
     public void delete(long id) throws SQLException {
-
+        Staff staff = JPA.entityManager().find(Staff.class, id);
+        JPA.serv(em -> em.remove(staff));
     }
 }
