@@ -4,14 +4,20 @@ import Services.JPA;
 import entities.Staff;
 import jakarta.persistence.Query;
 
+import java.sql.SQLException;
 import java.util.List;
 
-public class StaffDAO {
-    public static void addStaff(Staff staff) {
-        JPA.serv(em -> em.persist(staff));
+public class StaffDAO implements DAO<Staff>{
+
+    @Override
+    public Staff get(long id) {
+
+        Staff staff = JPA.entityManager().find(Staff.class, id);
+        return staff;
     }
 
-    public static List<Staff> getAllStaff() {
+    @Override
+    public List<Staff> getAll() {
         Query query = JPA.entityManager().createQuery("SELECT s from Staff s");
 
         List<Staff> lst = query.getResultList();
@@ -25,4 +31,18 @@ public class StaffDAO {
         return query.getResultList();
     }
 
+    @Override
+    public void save(Staff staff) {
+        JPA.serv(em -> em.persist(staff));
+    }
+
+    @Override
+    public void update(Staff staff) {
+
+    }
+
+    @Override
+    public void delete(long id) throws SQLException {
+
+    }
 }

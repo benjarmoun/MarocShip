@@ -12,11 +12,13 @@ public class Main {
 //        EntityManager entityManager = entityManagerFactory.createEntityManager();
 //        EntityTransaction entityTransaction = entityManager.getTransaction();
 
-        StaffDAO.getAllStaff();
+//        StaffDAO.getAllStaff();
 
 //        StaffDAO.addStaff(new Staff("hamid","hamid@staff.com","pw","staff"));
-
-        ChauffeurDAO.addChauffeur(new Chauffeur());
+//        Chauffeur chauffeur = new Chauffeur("user","email@email.com","pw","staff");
+//
+//        ChauffeurDAO ch = new ChauffeurDAO();
+//        ch.save(chauffeur);
     }
 
 }
