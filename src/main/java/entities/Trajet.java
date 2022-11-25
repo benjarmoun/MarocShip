@@ -11,7 +11,7 @@ public class Trajet {
     private int id;
 
     @Column(name = "depart")
-    private Integer depart;
+    private String depart;
 
     @Column(name = "arrive")
     private String arrive;
@@ -30,11 +30,11 @@ public class Trajet {
         this.id = id;
     }
 
-    public Integer getDepart() {
+    public String getDepart() {
         return depart;
     }
 
-    public void setDepart(Integer depart) {
+    public void setDepart(String depart) {
         this.depart = depart;
     }
 

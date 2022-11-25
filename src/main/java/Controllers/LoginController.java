@@ -10,9 +10,10 @@ import jakarta.inject.Named;
 public class LoginController {
 
     @Inject
-    LoginBean login;
+    LoginBean user;
 
     public void login(){
+
 
     }
 
