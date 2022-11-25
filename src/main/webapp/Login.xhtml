@@ -11,7 +11,7 @@
       <h:inputText value="#{loginBean.email}" />
       <h:outputLabel >Password </h:outputLabel>
       <h:inputSecret value="#{loginBean.password }" />
-      <h:commandButton value="Login" actionListener="#{loginController.addLivraison}" />
+      <h:commandButton value="Login" actionListener="#{loginController.login()}" />
 
    </h:form>
 </f:view>
