@@ -4,6 +4,7 @@ import Beans.LivraisonBean;
 import DAO.LivraisonDAO;
 import Services.Enum;
 import entities.Livraison;
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -14,6 +15,12 @@ import java.time.LocalDate;
 
 public class LivraisonController {
 
+    @PostConstruct
+    public void init() {
+
+    }
+
+    }
     public static boolean addLivraison(double poid, double prix, int trajet){
         Livraison livraison = new Livraison();
         livraison.setStatus(String.valueOf(Enum.statusVal.en_attente));
