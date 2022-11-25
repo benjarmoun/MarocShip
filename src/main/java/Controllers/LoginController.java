@@ -11,8 +11,10 @@ public class LoginController {
 
     @Inject
     LoginBean login;
+    public String login(){
 
-    public void login(){
+        System.out.println("azerty");
+        return "livraison";
 
     }
 

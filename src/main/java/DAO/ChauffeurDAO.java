@@ -39,3 +39,4 @@ public class ChauffeurDAO implements DAO <Chauffeur>{
         JPA.serv(em -> em.remove(chauffeur));
     }
 }
+ 
