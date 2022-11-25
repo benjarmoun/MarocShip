@@ -9,11 +9,12 @@
         <class>entities.LivraisonEntity</class>
         <class>entities.StaffEntity</class>
         <class>entities.TrajetEntity</class>
+
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/maroc_ship"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3305/maroc_ship"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.connection.password" value="root"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>

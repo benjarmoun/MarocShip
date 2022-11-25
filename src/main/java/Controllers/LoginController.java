@@ -13,8 +13,10 @@ public class LoginController {
     LoginBean login;
     public String login(){
 
+
         System.out.println("azerty");
         return "Livraison.xhtml?faces-redirect=true";
+
 
     }
 
