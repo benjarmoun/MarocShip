@@ -8,24 +8,58 @@
 >
 <f:view>
 
-    <h:form>
-        <p:dataTable value="#{livraisonController.trajets}" var="trajetEntity">
-            <p:column styleClass="border:solid 1px red; padding:12px;" headerText="trajet ID">
-                <h:outputText value="#{trajetEntity.id }" />
-            </p:column>
-            <p:column headerText="trajet depart">
-                <h:outputText value="#{trajetEntity.depart}" />
-            </p:column>
-            <p:column headerText="trajet arrive">
-                <h:outputText value="#{trajetEntity.arrive}" />
-            </p:column>
-            <p:column headerText="trajet distance">
-                <h:outputText value="#{trajetEntity.distance}" />
-            </p:column>
-            <p:column headerText="trajet arrive">
-                <h:outputText value="#{trajetEntity.zone}" />
-            </p:column>
-        </p:dataTable>
-    </h:form>
+    <p:dataTable value="#{livraisonController.trajets}" var="trajetEntity">
+        <p:column styleClass="border:solid 1px red; padding:12px;" headerText="trajet ID">
+            <h:outputText value="#{trajetEntity.id }" />
+        </p:column>
+        <p:column headerText="trajet depart">
+            <h:outputText value="#{trajetEntity.depart}" />
+        </p:column>
+        <p:column headerText="trajet arrive">
+            <h:outputText value="#{trajetEntity.arrive}" />
+        </p:column>
+        <p:column headerText="trajet distance">
+            <h:outputText value="#{trajetEntity.distance}" />
+        </p:column>
+        <p:column headerText="trajet arrive">
+            <h:outputText value="#{trajetEntity.zone}" />
+        </p:column>
+    </p:dataTable>
+
+    <div class="card ui-fluid ">
+        <h:form>
+            <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+            <h5 class="mt-0">Single</h5>
+            <div class="formgrid grid">
+                <div class="field col-12 md:col-4">
+                    <p:outputLabel value="Simple" for="@next"/>
+                    <p:inputText value="#{livraisonBean.prix }" />
+                </div>
+
+
+                <div class="field col-12 md:col-4">
+                    <p:outputLabel value="Cache" for="@next"/>
+                    <p:inputText  cacheTimeout="30000" value="#{livraisonBean.poid }" />
+                </div>
+
+                <div class="field col-12 md:col-4">
+                    <p:outputLabel value="Cache" for="@next"/>
+                    <p:inputText  value="#{livraisonBean.date }" />
+                </div>
+
+                <div class="field col-12 md:col-4">
+                    <p:outputLabel value="Cache" for="@next"/>
+                    <p:inputText  value="#{livraisonBean.trajet_id }" />
+                </div>
+                <div class="field col-12 md:col-4">
+                    <p:outputLabel value="Cache" for="@next"/>
+                    <p:inputText  value="#{livraisonBean.zone }" />
+                </div>
+
+            </div>
+
+            <h:commandButton value="Create" actionListener="#{livraisonBean.addLivraison}" />
+        </h:form>
+    </div>
 </f:view>
 </html>
