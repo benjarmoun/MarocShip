@@ -1,11 +1,11 @@
 package com.maroc_ship;
 
+import Controllers.LivraisonController;
 import Controllers.StaffController;
 import DAO.ChauffeurDAO;
 import DAO.StaffDAO;
-import entities.Chauffeur;
-import entities.Staff;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Null;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -13,15 +13,10 @@ public class Main {
 //        EntityManager entityManager = entityManagerFactory.createEntityManager();
 //        EntityTransaction entityTransaction = entityManager.getTransaction();
 
-//        StaffDAO.getAllStaff();
-
-//        StaffDAO.addStaff(new Staff("hamid","hamid@staff.com","pw","staff"));
-//        Chauffeur chauffeur = new Chauffeur("user","email@email.com","pw","staff");
 //
-//        ChauffeurDAO ch = new ChauffeurDAO();
-//        ch.save(chauffeur);
-        StaffController.login("hamid@staff.com","pw","staff");
+        StaffController.login("email","pw","staff");
 
+//        LivraisonController.addLivraison(20,130, null,1);
 
 
     }

@@ -1,41 +1,40 @@
 package DAO;
 
 import Services.JPA;
-import entities.Chauffeur;
-import entities.Staff;
+import entities.ChauffeurEntity;
 import jakarta.persistence.Query;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class ChauffeurDAO implements DAO <Chauffeur>{
+public class ChauffeurDAO implements DAO <ChauffeurEntity>{
 
 
     @Override
-    public Chauffeur get(long id) {
-        Chauffeur chauffeur = JPA.entityManager().find(Chauffeur.class, id);
+    public ChauffeurEntity get(long id) {
+        ChauffeurEntity chauffeur = JPA.entityManager().find(ChauffeurEntity.class, id);
         return chauffeur;
     }
 
     @Override
-    public List<Chauffeur> getAll() {
-        Query query = JPA.entityManager().createQuery("SELECT c from Chauffeur c");
+    public List<ChauffeurEntity> getAll() {
+        Query query = JPA.entityManager().createQuery("SELECT c from ChauffeurEntity c");
         return query.getResultList();
     }
 
     @Override
-    public void save(Chauffeur chauffeur) {
+    public void save(ChauffeurEntity chauffeur) {
         JPA.serv(em -> em.persist(chauffeur));
     }
 
     @Override
-    public void update(Chauffeur chauffeur) {
+    public void update(ChauffeurEntity chauffeur) {
 
     }
 
     @Override
     public void delete(long id) throws SQLException {
-        Chauffeur chauffeur = JPA.entityManager().find(Chauffeur.class, id);
+        ChauffeurEntity chauffeur = JPA.entityManager().find(ChauffeurEntity.class, id);
         JPA.serv(em -> em.remove(chauffeur));
     }
 }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-<<<<<<< HEAD
-    <data-source source="LOCAL" name="maroc_ship@localhost" uuid="af3d0c48-a30e-45ef-b125-e3e89710725f">
-=======
-    <data-source source="LOCAL" name="maroc_ship@localhost" uuid="9569ce8b-2517-4e57-b6ca-27c0e4047842">
->>>>>>> main
+    <data-source source="LOCAL" name="default/Hibernate" uuid="5a98daa9-e1f6-4c00-83e1-05f57e3f37f3">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/youcode/Desktop/youcode/A2/maroc_ship/src/main/resources/META-INF/persistence.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3305/maroc_ship</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/maroc_ship</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

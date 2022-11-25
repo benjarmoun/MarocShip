@@ -1,19 +1,18 @@
 package DAO;
 
 import Services.JPA;
-import entities.Livraison;
-import entities.Livraison;
+import entities.LivraisonEntity;
 import jakarta.persistence.Query;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class LivraisonDAO implements DAO<Livraison> {
+public class LivraisonDAO implements DAO<LivraisonEntity> {
 
     public static boolean UpdateLivraisonStatusById(String newStatus, int id) {
         try {
             JPA.serv(em ->
-                    em.createQuery("update Livraison  SET status = ?1 where id = ?2 ")
+                    em.createQuery("update LivraisonEntity  SET status = ?1 where id = ?2 ")
                             .setParameter(1, newStatus)
                             .setParameter(2, id)
                             .executeUpdate()
@@ -26,30 +25,30 @@ public class LivraisonDAO implements DAO<Livraison> {
     }
 
     @Override
-    public Livraison get(long id) {
-        Livraison livraison = JPA.entityManager().find(Livraison.class, id);
+    public LivraisonEntity get(long id) {
+        LivraisonEntity livraison = JPA.entityManager().find(LivraisonEntity.class, id);
         return livraison;
     }
 
     @Override
-    public List<Livraison> getAll() {
-        Query query = JPA.entityManager().createQuery("SELECT c from Livraison c");
+    public List<LivraisonEntity> getAll() {
+        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c");
         return query.getResultList();
     }
 
     @Override
-    public void save(Livraison livraison) {
+    public void save(LivraisonEntity livraison) {
         JPA.serv(em -> em.persist(livraison));
     }
 
     @Override
-    public void update(Livraison livraison) {
+    public void update(LivraisonEntity livraison) {
 
     }
 
     @Override
     public void delete(long id) throws SQLException {
-        Livraison livraison = JPA.entityManager().find(Livraison.class, id);
+        LivraisonEntity livraison = JPA.entityManager().find(LivraisonEntity.class, id);
         JPA.serv(em -> em.remove(livraison));
     }
 }
