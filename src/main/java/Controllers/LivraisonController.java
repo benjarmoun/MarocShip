@@ -1,12 +1,8 @@
 package Controllers;
 
-import Beans.LivraisonBean;
 import DAO.LivraisonDAO;
 import Services.Enum;
-import entities.Livraison;
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
+import entities.LivraisonEntity;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -14,12 +10,14 @@ import java.time.LocalDate;
 
 public class LivraisonController {
 
-    public static boolean addLivraison(double poid, double prix, int trajet){
-        Livraison livraison = new Livraison();
+    public static boolean addLivraison(double poid, double prix, Integer idCh, int trajet){
+        LivraisonEntity livraison = new LivraisonEntity();
         livraison.setStatus(String.valueOf(Enum.statusVal.en_attente));
         livraison.setPoid(poid);
         livraison.setPrix(prix);
-        livraison.setTrajet_id(trajet);
+        livraison.setTrajetId(trajet);
+        livraison.setDate(Date.valueOf(LocalDate.now()));
+        livraison.setChauffeurId(idCh);
 
 
         LivraisonDAO livraisonDAO = new LivraisonDAO();
@@ -39,5 +37,6 @@ public class LivraisonController {
             return true;
         }
         return false;
+    }
 
 }

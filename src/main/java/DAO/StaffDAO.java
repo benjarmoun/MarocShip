@@ -1,27 +1,27 @@
 package DAO;
 
 import Services.JPA;
-import entities.Staff;
+
+import entities.StaffEntity;
 import jakarta.persistence.Query;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class StaffDAO implements DAO<Staff>{
+public class StaffDAO implements DAO<StaffEntity>{
 
     @Override
-    public Staff get(long id) {
-        Staff staff = JPA.entityManager().find(Staff.class, id);
+    public StaffEntity get(long id) {
+        StaffEntity staff = JPA.entityManager().find(StaffEntity.class, id);
         return staff;
     }
 
     @Override
-    public List<Staff> getAll() {
-        Query query = JPA.entityManager().createQuery("SELECT s from Staff s");
-
-        List<Staff> lst = query.getResultList();
+    public List<StaffEntity> getAll() {
+        Query query = JPA.entityManager().createQuery("SELECT s from StaffEntity s");
+        List<StaffEntity> lst = query.getResultList();
         for (int i = 0; i < lst.size(); i++) {
-            System.out.println(lst.get(i).getUserName());
+            System.out.println(lst.get(i).getUsername());
             System.out.println(lst.get(i).getEmail());
             System.out.println(lst.get(i).getPassword());
             System.out.println(lst.get(i).getRole());
@@ -31,18 +31,18 @@ public class StaffDAO implements DAO<Staff>{
     }
 
     @Override
-    public void save(Staff staff) {
+    public void save(StaffEntity staff) {
         JPA.serv(em -> em.persist(staff));
     }
 
     @Override
-    public void update(Staff staff) {
+    public void update(StaffEntity staff) {
 
     }
 
     @Override
     public void delete(long id) throws SQLException {
-        Staff staff = JPA.entityManager().find(Staff.class, id);
+        StaffEntity staff = JPA.entityManager().find(StaffEntity.class, id);
         JPA.serv(em -> em.remove(staff));
     }
 }

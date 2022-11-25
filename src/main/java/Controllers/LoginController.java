@@ -14,7 +14,7 @@ public class LoginController {
     public String login(){
 
         System.out.println("azerty");
-        return "livraison";
+        return "Livraison.xhtml?faces-redirect=true";
 
     }
 

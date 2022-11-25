@@ -4,6 +4,11 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="default">
+        <class>entities.AdminEntity</class>
+        <class>entities.ChauffeurEntity</class>
+        <class>entities.LivraisonEntity</class>
+        <class>entities.StaffEntity</class>
+        <class>entities.TrajetEntity</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/maroc_ship"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
