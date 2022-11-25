@@ -27,4 +27,17 @@ public class LivraisonController {
         return true;
     }
 
+    public static boolean LivraisonStatusDelivre(int id){
+        if ( LivraisonDAO.UpdateLivraisonStatusById(String.valueOf(Enum.statusVal.delivré), id)){
+            return true;
+        }
+            return false;
+    }
+
+    public static boolean LivraisonStatusEncour(int id){
+        if ( LivraisonDAO.UpdateLivraisonStatusById(String.valueOf(Enum.statusVal.en_attente), id)){
+            return true;
+        }
+        return false;
+
 }
