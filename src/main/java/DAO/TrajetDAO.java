@@ -16,9 +16,7 @@ public class TrajetDAO implements DAO<Trajet> {
 
     @Override
     public List<Trajet> getAll() {
-
         Query query = JPA.entityManager().createQuery("SELECT t from Trajet t");
-
         return query.getResultList();
     }
 
