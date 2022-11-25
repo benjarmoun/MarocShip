@@ -9,12 +9,13 @@
 <f:view>
 
     <h:form>
-        <h:outputLabel for="country" value="Country: "/>
-        <h:selectOneMenu id="country" value="#{basicView.country}" style="width:150px">
+        <h:outputLabel for="path" value="path: "/>
+        <h:selectOneMenu id="path" value="#{path.depart+path.arrive}" style="width:150px">
             <p:ajax listener="#{basicView.onCountryChange}" update="city"/>
             <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true"/>
             <f:selectItems value="#{basicView.countries}"/>
         </h:selectOneMenu>
+
         <h:outputLabel>Prix</h:outputLabel>
         <h:inputText value="#{livraisonBean.prix }" />
         <h:outputLabel >Date </h:outputLabel>
