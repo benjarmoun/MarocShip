@@ -9,18 +9,24 @@
 <f:view>
 
     <h:form>
-        <h:outputLabel for="path" value="path: "/>
-        <h:selectOneMenu id="path" value="#{path.depart+path.arrive}" style="width:150px">
-            <p:ajax listener="#{basicView.onCountryChange}" update="city"/>
-            <f:selectItem itemLabel="Select Country" itemValue="" noSelectionOption="true"/>
-            <f:selectItems value="#{basicView.countries}"/>
-        </h:selectOneMenu>
+        <p:dataTable value="#{livraisonController.trajets}" var="trajetEntity">
+            <p:column styleClass="border:solid 1px red; padding:12px;" headerText="trajet ID">
+                <h:outputText value="#{trajetEntity.id }" />
+            </p:column>
+            <p:column headerText="trajet depart">
+                <h:outputText value="#{trajetEntity.depart}" />
+            </p:column>
+            <p:column headerText="trajet arrive">
+                <h:outputText value="#{trajetEntity.arrive}" />
+            </p:column>
+            <p:column headerText="trajet distance">
+                <h:outputText value="#{trajetEntity.distance}" />
+            </p:column>
+            <p:column headerText="trajet arrive">
+                <h:outputText value="#{trajetEntity.zone}" />
+            </p:column>
+        </p:dataTable>
 
-        <h:outputLabel>Prix</h:outputLabel>
-        <h:inputText value="#{livraisonBean.prix }" />
-        <h:outputLabel >Date </h:outputLabel>
-        <h:inputText value="#{livraisonBean.date }" />
-        <h:commandButton value="Login" actionListener="#{livraisonController.addLivraison()}" />
 
     </h:form>
 </f:view>
