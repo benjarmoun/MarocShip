@@ -5,6 +5,7 @@ import DAO.LivraisonDAO;
 import DAO.TrajetDAO;
 import Services.Enum;
 import entities.LivraisonEntity;
+import entities.TrajetEntity;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -22,7 +23,7 @@ public class LivraisonController {
     TrajetDAO trajetDao = new TrajetDAO();
 
 
-    private List<Trajet> trajets;
+    private List<TrajetEntity> trajets;
 
     @PostConstruct
     public void initialize(){
@@ -31,24 +32,18 @@ public class LivraisonController {
         System.out.println(trajetDao.getAll().size());
     }
 
-    public List<Trajet> getTrajets() {
+    public List<TrajetEntity> getTrajets() {
         return trajets;
     }
 
-    public static boolean LivraisonStatusEncour(int id){
-        if ( LivraisonDAO.UpdateLivraisonStatusById(String.valueOf(Enum.statusVal.en_attente), id)){
-            return true;
-        }
-        return false;
-    }
    public static boolean addLivraison(double poid, double prix, Integer idCh, int trajet){
-       Livraison livraison = new Livraison();
+       LivraisonEntity livraison = new LivraisonEntity();
        livraison.setStatus(String.valueOf(Enum.statusVal.en_attente));
        livraison.setPoid(poid);
        livraison.setPrix(prix);
-       livraison.setTrajet_id(trajet);
+       livraison.setTrajetId(trajet);
        livraison.setDate(Date.valueOf(LocalDate.now()));
-       livraison.setChauffeur_id(idCh);
+       livraison.setChauffeurId(idCh);
 
 
        LivraisonDAO livraisonDAO = new LivraisonDAO();
