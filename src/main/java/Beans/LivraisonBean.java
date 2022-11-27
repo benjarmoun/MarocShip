@@ -10,8 +10,18 @@ import java.util.Date;
 @RequestScoped
 public class LivraisonBean {
 
-    private String prix;
+    private double prix;
     private double poid;
+    private Date date;
+    private int trajet_id;
+
+    public int getTrajet_id() {
+        return trajet_id;
+    }
+
+    public void setTrajet_id(int trajet_id) {
+        this.trajet_id = trajet_id;
+    }
 
     public Date getDate() {
         return date;
@@ -21,13 +31,11 @@ public class LivraisonBean {
         this.date = date;
     }
 
-    private Date date;
-
-    public String getPrix() {
+    public double getPrix() {
         return prix;
     }
 
-    public void setPrix(String prix) {
+    public void setPrix(double prix) {
         this.prix = prix;
     }
 

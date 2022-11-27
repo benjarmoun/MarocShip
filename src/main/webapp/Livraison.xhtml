@@ -8,24 +8,38 @@
 >
 <f:view>
 
+    <p:dataTable value="#{livraisonController.trajets}" var="trajet">
+        <p:column styleClass="border:solid 1px red; padding:12px;" headerText="trajet ID">
+            <h:outputText value="#{trajet.id }" />
+        </p:column>
+        <p:column headerText="trajet depart">
+            <h:outputText value="#{trajet.depart}" />
+        </p:column>TrajetEntity
+        <p:column headerText="trajet arrive">
+            <h:outputText value="#{trajet.arrive}" />
+        </p:column>
+        <p:column headerText="trajet distance">
+            <h:outputText value="#{trajet.distance}" />
+        </p:column>
+        <p:column headerText="trajet arrive">
+            <h:outputText value="#{trajet.zone}" />
+        </p:column>
+    </p:dataTable>
+
     <h:form>
-        <p:dataTable value="#{livraisonController.trajets}" var="trajetEntity">
-            <p:column styleClass="border:solid 1px red; padding:12px;" headerText="trajet ID">
-                <h:outputText value="#{trajetEntity.id }" />
-            </p:column>
-            <p:column headerText="trajet depart">
-                <h:outputText value="#{trajetEntity.depart}" />
-            </p:column>
-            <p:column headerText="trajet arrive">
-                <h:outputText value="#{trajetEntity.arrive}" />
-            </p:column>
-            <p:column headerText="trajet distance">
-                <h:outputText value="#{trajetEntity.distance}" />
-            </p:column>
-            <p:column headerText="trajet arrive">
-                <h:outputText value="#{trajetEntity.zone}" />
-            </p:column>
-        </p:dataTable>
+
+        <h:outputLabel>Date</h:outputLabel>
+        <h:inputText value="#{livraisonBean.date}" /> <br/>
+        <h:outputLabel >Poid</h:outputLabel>
+        <h:inputText value="#{livraisonBean.poid}" /> <br/>
+        <h:outputLabel >Prix</h:outputLabel>
+        <h:inputText value="#{livraisonBean.prix}" /> <br/>
+        <h:outputLabel >Trajet ID </h:outputLabel>
+        <h:inputText value="#{livraisonBean.trajet_id }" /> <br/>
+
+
+        <h:commandButton value="Create" action="#{livraisonController.addLivraison}"/>
+
     </h:form>
 </f:view>
 </html>
