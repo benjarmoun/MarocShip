@@ -24,7 +24,7 @@ public class LivraisonController {
     TrajetDAO trajetDao = new TrajetDAO();
 
     @Inject
-     LivraisonBean livraisonBean;
+    LivraisonBean livraisonBean;
 
 
     private List<TrajetEntity> trajets;
@@ -40,20 +40,24 @@ public class LivraisonController {
     }
 
 
-    public boolean addLivraison(){
+    public void addLivraison(){
 
         LivraisonEntity livraison = new LivraisonEntity();
 
-        livraison.setDate((Date) livraisonBean.getDate());
+        livraison.setDate(Date.valueOf(LocalDate.now()));
+
+        livraison.setStatus(String.valueOf(Enum.statusVal.en_attente));
 
         livraison.setPoid(livraisonBean.getPoid());
 
         livraison.setPrix(livraisonBean.getPrix());
 
-        livraison.setTrajetId(livraisonBean.getTrajet_id());
+        livraison.setTrajetId(livraisonBean.getTrajetId());
+
         LivraisonDAO livraisonDAO = new LivraisonDAO();
+
         livraisonDAO.save(livraison);
-        return true;
+
 
     }
     public void checkPoid(double poid){

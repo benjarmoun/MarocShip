@@ -13,7 +13,7 @@ public class LivraisonEntity {
     private int id;
     @Basic
     @Column(name = "chauffeur_id")
-    private int chauffeurId;
+    private Integer chauffeurId;
     @Basic
     @Column(name = "trajet_id")
     private int trajetId;
@@ -44,11 +44,11 @@ public class LivraisonEntity {
         this.id = id;
     }
 
-    public int getChauffeurId() {
+    public Integer getChauffeurId() {
         return chauffeurId;
     }
 
-    public void setChauffeurId(int chauffeurId) {
+    public void setChauffeurId(Integer chauffeurId) {
         this.chauffeurId = chauffeurId;
     }
 

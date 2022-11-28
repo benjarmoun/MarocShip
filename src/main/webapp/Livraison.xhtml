@@ -6,26 +6,29 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
 >
-<f:view>
+<h:head>
+    <title>Livraison page</title>
+</h:head>
+<h:body>
 
-    <p:dataTable value="#{livraisonController.trajets}" var="trajet">
-        <p:column styleClass="border:solid 1px red; padding:12px;" headerText="trajet ID">
-            <h:outputText value="#{trajet.id }" />
-        </p:column>
-        <p:column headerText="trajet depart">
-            <h:outputText value="#{trajet.depart}" />
-        </p:column>TrajetEntity
-        <p:column headerText="trajet arrive">
-            <h:outputText value="#{trajet.arrive}" />
-        </p:column>
-        <p:column headerText="trajet distance">
-            <h:outputText value="#{trajet.distance}" />
-        </p:column>
-        <p:column headerText="trajet arrive">
-            <h:outputText value="#{trajet.zone}" />
-        </p:column>
-    </p:dataTable>
 
+        <p:dataTable value="#{livraisonController.trajets}" var="trajet">
+            <p:column styleClass="border:solid 1px red; padding:12px;" headerText="trajet ID">
+                <h:outputText value="#{trajet.id }" />
+            </p:column>
+            <p:column headerText="trajet depart">
+                <h:outputText value="#{trajet.depart}" />
+            </p:column>TrajetEntity
+            <p:column headerText="trajet arrive">
+                <h:outputText value="#{trajet.arrive}" />
+            </p:column>
+            <p:column headerText="trajet distance">
+                <h:outputText value="#{trajet.distance}" />
+            </p:column>
+            <p:column headerText="trajet arrive">
+                <h:outputText value="#{trajet.zone}" />
+            </p:column>
+        </p:dataTable>
     <h:form>
 
         <h:outputLabel>Date</h:outputLabel>
@@ -35,11 +38,11 @@
         <h:outputLabel >Prix</h:outputLabel>
         <h:inputText value="#{livraisonBean.prix}" /> <br/>
         <h:outputLabel >Trajet ID </h:outputLabel>
-        <h:inputText value="#{livraisonBean.trajet_id }" /> <br/>
-
-
-        <h:commandButton value="Create" action="#{livraisonController.addLivraison}"/>
+        <h:inputText value="#{livraisonBean.trajetId }" /> <br/>
+        <h:commandButton value="addLivraison" action="#{livraisonController.addLivraison()}"/>
 
     </h:form>
-</f:view>
+
+</h:body>
+
 </html>
