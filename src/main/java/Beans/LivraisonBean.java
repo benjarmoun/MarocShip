@@ -15,6 +15,9 @@ public class LivraisonBean {
     private String date;
     private int trajetId;
 
+
+
+
     public double getPrix() {
         return prix;
     }

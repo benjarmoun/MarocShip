@@ -9,12 +9,13 @@ import java.util.List;
 
 public class LivraisonDAO implements DAO<LivraisonEntity> {
 
-    public static boolean UpdateLivraisonStatusById(String newStatus, int id) {
+    public static boolean UpdateLivraisonStatusById(String newStatus, int id,int idChe) {
         try {
             JPA.serv(em ->
-                    em.createQuery("update LivraisonEntity  SET status = ?1 where id = ?2 ")
+                    em.createQuery("update LivraisonEntity  SET status = ?1 , chauffeurId=?2 where id = ?3 ")
                             .setParameter(1, newStatus)
-                            .setParameter(2, id)
+                            .setParameter(2, idChe)
+                            .setParameter(3, id)
                             .executeUpdate()
             );
             return true;
@@ -35,6 +36,18 @@ public class LivraisonDAO implements DAO<LivraisonEntity> {
         Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c");
         return query.getResultList();
     }
+    public List<LivraisonEntity> getVoiture() {
+        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.poid<=200 ");
+        return query.getResultList();
+    }
+    public List<LivraisonEntity> getCamion() {
+        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.poid <=800 ");
+        return query.getResultList();
+    }
+    public List<LivraisonEntity> getGCamion() {
+        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.poid <=1600 ");
+        return query.getResultList();
+    }
 
     @Override
     public void save(LivraisonEntity livraison) {
@@ -43,7 +56,7 @@ public class LivraisonDAO implements DAO<LivraisonEntity> {
 
     @Override
     public void update(LivraisonEntity livraison) {
-
+        JPA.serv(em -> em.merge(livraison));
     }
 
     @Override

@@ -29,8 +29,8 @@
                 <h:outputText value="#{trajet.zone}" />
             </p:column>
         </p:dataTable>
-    <h:form>
 
+    <h:form>
         <h:outputLabel>Date</h:outputLabel>
         <h:inputText value="#{livraisonBean.date}" /> <br/>
         <h:outputLabel >Poid</h:outputLabel>
@@ -40,7 +40,6 @@
         <h:outputLabel >Trajet ID </h:outputLabel>
         <h:inputText value="#{livraisonBean.trajetId }" /> <br/>
         <h:commandButton value="addLivraison" action="#{livraisonController.addLivraison()}"/>
-
     </h:form>
 
 </h:body>

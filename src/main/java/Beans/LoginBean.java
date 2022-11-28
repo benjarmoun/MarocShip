@@ -16,6 +16,8 @@ import java.util.stream.Collectors;
 @Named
 @RequestScoped
 public class LoginBean {
+    @Inject
+    auth chauffeur;
     private String email;
     private String password;
     private String role;
@@ -47,9 +49,11 @@ public class LoginBean {
     public String loginBean() throws Exception {
 
         try {
-           StaffEntity stf = StaffController.login(this.email,this.password,"otman");
-            System.out.println(stf);
+           StaffEntity stf = StaffController.login(this.email,this.password,"chauffeur");
+
            if(stf != null){
+               chauffeur.setTypeVehicule("chaufffeur");
+               chauffeur.setRole("chauffeur");
                 return "Livraison.xhtml?faces-redirect=true";
             }else{
                 return "Login.xhtml?faces-redirect=true";

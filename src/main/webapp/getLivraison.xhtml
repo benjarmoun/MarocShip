@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+   <title>Livraison page</title>
+</h:head>
+<h:body>
+
+
+   <p:dataTable value="#{livraisonController.livraisons }" var="livraisonWithType">
+      <p:column styleClass="border:solid 1px red; padding:12px;" headerText="date">
+         <h:outputText value="#{livraisonWithType.date}" />
+      </p:column>
+      <p:column headerText="depart">
+         <h:outputText value="#{livraisonWithType.trajetByTrajetId.depart}" />
+      </p:column>TrajetEntity
+      <p:column headerText="arrive">
+         <h:outputText value="#{livraisonWithType.trajetByTrajetId.arrive}" />
+      </p:column>TrajetEntity
+      <p:column headerText="distance">
+         <h:outputText value="#{livraisonWithType.trajetByTrajetId.distance}" />
+      </p:column>
+      <p:column headerText="poid">
+         <h:outputText value="#{livraisonWithType.poid}" />
+      </p:column>
+
+      <p:column headerText="poid">
+         <h:form>
+
+            <h:commandButton value="addLivraison" action="#{livraisonController.editLivraison(livraisonWithType.id)}"/>
+         </h:form>
+
+      </p:column>
+
+
+   </p:dataTable>
+
+
+</h:body>
+</html>
+
+
+
+
