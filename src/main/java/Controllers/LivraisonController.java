@@ -108,7 +108,7 @@ public class LivraisonController {
                     .collect(Collectors.toList());
         }
 
-        chauffeurs.forEach(ch -> mail.send("benjarmoun123@gmail.com", "nouvelle livraison ","Nouvelle livraison disponibles consulter votre compte pour plus de details "));
+//        chauffeurs.forEach(ch -> mail.send("benjarmoun123@gmail.com", "nouvelle livraison ","Nouvelle livraison disponibles consulter votre compte pour plus de details "));
 
 
     }

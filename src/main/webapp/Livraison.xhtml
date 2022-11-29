@@ -30,17 +30,46 @@
             </p:column>
         </p:dataTable>
 
-    <h:form>
-        <h:outputLabel>Date</h:outputLabel>
-        <h:inputText value="#{livraisonBean.date}" /> <br/>
-        <h:outputLabel >Poid</h:outputLabel>
-        <h:inputText value="#{livraisonBean.poid}" /> <br/>
-        <h:outputLabel >Prix</h:outputLabel>
-        <h:inputText value="#{livraisonBean.prix}" /> <br/>
-        <h:outputLabel >Trajet ID </h:outputLabel>
-        <h:inputText value="#{livraisonBean.trajetId }" /> <br/>
-        <h:commandButton value="addLivraison" action="#{livraisonController.addLivraison()}"/>
-    </h:form>
+
+
+
+
+
+
+<h:form>
+    <div class="card">
+
+
+        <h5>Date</h5>
+        <span class="ui-float-label">
+       <p:inputText id="float-input" value="#{livraisonBean.date}"/>
+       <p:outputLabel for="@previous" value="12-12-2022"/>
+   </span>
+
+        <h5>Poid</h5>
+        <span class="ui-input-icon-left">
+        <i class="pi " />
+        <p:inputText placeholder="Search" value="#{livraisonBean.poid}"  />
+    </span>
+
+        <h5>Prix</h5>
+        <span class="ui-input-icon-right">
+        <i class="pi pi-spin pi-spinner" />
+        <p:inputText value="#{livraisonBean.prix}"  />
+    </span>
+
+        <h5>Trqjet ID</h5>
+        <div class="field">
+            <p:inputText styleClass="block" value="#{livraisonBean.trajetId }"/>
+            <small class="block">Please choose from thr table above.</small>
+        </div>
+
+        <h:commandButton value="addLivraison" action="#{livraisonController.addLivraison}"/>
+    </div>
+</h:form>
+
+
+
 
 </h:body>
 
