@@ -4,6 +4,7 @@ package Beans;
 import Controllers.LoginController;
 import Controllers.StaffController;
 import Services.JPA;
+import entities.ChauffeurEntity;
 import entities.StaffEntity;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -52,11 +53,29 @@ public class LoginBean {
            StaffEntity stf = StaffController.login(this.email,this.password,"chauffeur");
 
            if(stf != null){
-               chauffeur.setTypeVehicule("chaufffeur");
-               chauffeur.setRole("chauffeur");
+
                 return "Livraison.xhtml?faces-redirect=true";
             }else{
                 return "Login.xhtml?faces-redirect=true";
+            }
+
+
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+    public String loginBeanChauffeur() throws Exception {
+
+        try {
+            ChauffeurEntity stf = StaffController.loginChauffeur(this.email,this.password);
+
+            if(stf != null){
+                chauffeur.setTypeVehicule("chaufffeur");
+                chauffeur.setRole("chauffeur");
+                return "getLivraison.xhtml?faces-redirect=true";
+            }else{
+                return "LoginChauffeur.xhtml?faces-redirect=true";
             }
 
 

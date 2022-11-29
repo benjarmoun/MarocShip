@@ -37,15 +37,15 @@ public class LivraisonDAO implements DAO<LivraisonEntity> {
         return query.getResultList();
     }
     public List<LivraisonEntity> getVoiture() {
-        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.poid<=200 ");
+        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.status =?1 AND c.poid<=200  ").setParameter(1,"en_attente");
         return query.getResultList();
     }
     public List<LivraisonEntity> getCamion() {
-        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.poid <=800 ");
+        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.status =?1 AND c.poid <=800 ").setParameter(1,"en_attente");
         return query.getResultList();
     }
     public List<LivraisonEntity> getGCamion() {
-        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.poid <=1600 ");
+        Query query = JPA.entityManager().createQuery("SELECT c from LivraisonEntity c where c.status =?1 AND c.poid <=1600 ").setParameter(1,"en_attente");
         return query.getResultList();
     }
 
